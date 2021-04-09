@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import styles from "./country.module.css";
-import { useState, useEffect } from "react";
 
 const getCountry = async (id) => {
 	const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
@@ -15,7 +15,7 @@ const Country = ({ country }) => {
 
 	const getBorder = async () => {
 		const borders = await Promise.all(
-			country.borders.map((border) => getBorder(border))
+			country.borders.map((border) => getCountry(border))
 		);
 
 		setBorders(borders);
@@ -62,7 +62,7 @@ const Country = ({ country }) => {
 					</div>
 
 					<div className={styles.details_panel_row}>
-						<div className={styles.details_panel_label}>Currency</div>
+						<div className={styles.details_panel_label}>Currencies</div>
 						<div className={styles.details_panel_value}>
 							{country.currencies.map(({ name }) => name).join(", ")}
 						</div>
@@ -82,17 +82,17 @@ const Country = ({ country }) => {
 
 					<div className={styles.details_panel_borders}>
 						<div className={styles.details_panel_borders_label}>
-							Paises vecinos
+							Neighboring Countries
 						</div>
 						<div className={styles.details_panel_borders_container}>
-							{borders.map(({ flag, name }) => {
+							{borders.map(({ flag, name }) => (
 								<div className={styles.details_panel_borders_country}>
 									<img src={flag} alt={name} />
 									<div className={styles.details_panel_borders_name}>
 										{name}
 									</div>
-								</div>;
-							})}
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
