@@ -65,16 +65,34 @@ const CountriesTable = ({ countries }) => {
 					className={styles.heading_name}
 					onClick={() => setValueAndDirection("name")}
 				>
-					<span>Nombre</span>
-					<SortArrow />
+					<span>Name</span>
+					{value === "name" && <SortArrow direction={direction} />}
 				</button>
 
 				<button
 					className={styles.heading_population}
 					onClick={() => setValueAndDirection("population")}
 				>
-					<span>Población</span>
-					<SortArrow direction={direction} />
+					<span>Population</span>
+					{value === "population" && <SortArrow direction={direction} />}
+				</button>
+
+				<button
+					className={styles.heading_area}
+					onClick={() => setValueAndDirection("area")}
+				>
+					<span>
+						Area (Km <sup style={{ fontSize: "0.7rem" }}>2</sup>)
+					</span>
+					{value === "area" && <SortArrow direction={direction} />}
+				</button>
+
+				<button
+					className={styles.heading_gini}
+					onClick={() => setValueAndDirection("gini")}
+				>
+					<span>Gini</span>
+					{value === "gini" && <SortArrow direction={direction} />}
 				</button>
 			</div>
 
