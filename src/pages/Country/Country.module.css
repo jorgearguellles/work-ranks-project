@@ -1,3 +1,4 @@
+/* Sección principal */
 .overview_panel {
 	padding: 20px;
 	border-radius: 8px;
@@ -35,5 +36,35 @@
 	color: var(--text-color-secondary);
 }
 
-.overview_value {
+/* Sección secundaría */
+
+.details_panel {
+	background-color: var(--background-color-light);
+	box-shadow: var(--box-shadow);
+	border-radius: 8px;
+}
+
+.details_panel_heading {
+	padding: 20px 20px 0 20px;
+	font-size: 30px;
+}
+
+.details_panel_row {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 20px;
+}
+
+.details_panel_label {
+	color: var(--text-color-secondary);
+}
+
+/* Paises fronteras */
+
+.details_panel_borders {
+}
+
+.details_panel_borders img {
+	width: 100%;
 }
